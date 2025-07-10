@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://society-backend-xs4k.onrender.com",
 });
 
 api.interceptors.request.use((config) => {
