@@ -5,7 +5,7 @@ const Complaint = require('../models/Complaint');
 const Visitor = require('../models/Visitor');
 const { protect, adminOnly } = require('../middleware/authMiddleware');
 
-// ✅ GET /admin/dashboard - Admin summary stats
+
 router.get('/dashboard', protect, adminOnly, async (req, res) => {
   try {
     const totalResidents = await Resident.countDocuments();
@@ -23,7 +23,7 @@ router.get('/dashboard', protect, adminOnly, async (req, res) => {
   }
 });
 
-// ✅ GET /admin/residents - Admin: View all residents
+
 router.get('/residents', protect, adminOnly, async (req, res) => {
   try {
     const residents = await Resident.find();
@@ -34,7 +34,7 @@ router.get('/residents', protect, adminOnly, async (req, res) => {
   }
 });
 
-// ✅ DELETE /admin/residents/:id - Admin: Delete resident
+
 router.delete('/residents/:id', protect, adminOnly, async (req, res) => {
   try {
     const resident = await Resident.findById(req.params.id);
@@ -42,7 +42,7 @@ router.delete('/residents/:id', protect, adminOnly, async (req, res) => {
       return res.status(404).json({ message: "Resident not found" });
     }
 
-    await resident.deleteOne(); // Also okay: Resident.findByIdAndDelete()
+    await resident.deleteOne(); 
     res.status(200).json({ message: "Resident deleted" });
   } catch (err) {
     console.error("Delete error:", err);
@@ -67,3 +67,4 @@ router.get('/maintenance/payments', protect, adminOnly, async (req, res) => {
 
 
 module.exports = router;
+
