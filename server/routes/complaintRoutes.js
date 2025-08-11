@@ -7,13 +7,13 @@ const {
   getResidentComplaints,
 } = require("../controllers/complaintController");
 
-const { protect } = require("../middleware/authMiddleware"); // ✅ Only once
+const { protect } = require("../middleware/authMiddleware"); 
 
-// Resident routes
+
 router.post("/submit", protect, submitComplaint);
 router.get("/my", protect, getResidentComplaints);
 
-// Admin routes
+
 router.get("/all", protect, async (req, res) => {
   console.log("Authenticated user:", req.user);
 
@@ -52,3 +52,4 @@ router.put("/update/:id", protect, async (req, res) => {
 
 
 module.exports = router;
+
