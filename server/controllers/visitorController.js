@@ -16,7 +16,7 @@ const generateQRCode = async (req, res) => {
   }
 };
 const logVisitorEntry = async (req, res) => {
-  console.log("🔔 Visitor entry endpoint hit"); // ✅ Add this line
+  console.log("🔔 Visitor entry endpoint hit"); 
 
   try {
     const { residentId, name, purpose } = req.body;
@@ -55,3 +55,4 @@ module.exports = {
   logVisitorEntry,
   getAllVisitors,
 };
+
